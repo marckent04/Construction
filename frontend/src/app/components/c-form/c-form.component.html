@@ -1,0 +1,47 @@
+<div class="container-fluid connexion">
+  <div class="connexionForm">
+    <div class="row">
+      <div class="col-md-6 d-none d-md-block bloc">
+          <ngb-carousel id="carousel">
+              <ng-template ngbSlide>
+                <div class="c1">
+                  <h3>First slide label</h3>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class='carousel-div'>
+                  <h3>Second slide label</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class='carousel-div'>
+                  <h3>Third slide label</h3>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+              </ng-template>
+            </ngb-carousel>
+      </div>
+      <div class="offset-1 offset-md-0 col-10 col-md-6 bloc blocf">
+        <form #fc='ngForm' (ngSubmit)='connexion(fc)' class="col-md-8 coForm">
+          <h3 class="text-center">Connexion</h3>
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="email" name="mail" id="mail" class="form-control" placeholder="entrer votre mail ..." ngModel required>
+            <small class="text-danger">{{err.mail}}</small>
+          </div>
+          <div class="form-group">
+            <label for="mdp">Votre mot de passe</label>
+            <input type="password" name="mdp" id="mdp" class="form-control" placeholder="mot de passe" ngModel required>
+            <small class="text-danger">{{err.mdp}}</small> 
+          </div>
+          <div class="form-group">
+            <button class='btn btn-primary btn-block'>Me connecter</button>
+          </div>
+        </form>
+      </div>
+      </div>
+  </div>
+  
+</div>

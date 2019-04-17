@@ -1,0 +1,41 @@
+/*general*/
+.componentTitle {
+    margin-top: 60px;
+}
+
+/*INDEX OU VOIR PROJETS*/
+.imgProject {
+    height: 200px;
+}
+
+.imgProject > img {
+    height: 100%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.statusProject {
+    position: absolute;
+    font-size: 50px;
+    top: 46%;
+    left: 42%;
+    color: orange;
+    border-radius: 100%;
+    background: white;
+}
+
+.project {
+    position: relative;
+    margin: 10px auto;
+    border: 1px solid #17a2b8;
+    border-radius: 15px;
+}
+
+.project:hover {
+    box-shadow: 0px 0px 6px black;
+}
+
+.seeMore {
+    border-radius: 15px;
+    width: 80%;
+    margin-left: 10%;
+}

@@ -1,0 +1,122 @@
+<section>
+    <div class="container-fluid">
+    <app-navbar-c></app-navbar-c>
+    <div class="row">
+      <div class="col-md-2">
+          <app-left-menu></app-left-menu>
+      </div>
+      <div class="col-md-10">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+              <h1 class='text-left'>{{project.nomProjet}}</h1>
+              <div class="row">
+              <div class="imgP">
+                <img src="{{project.imageProjet}}" class='img-thumbnail border border-success' alt="">
+              </div>
+            </div>
+            
+            </div>
+            <div class="col-md-2 text-right">
+                <p>
+                    <button type="button" class="btn btn-outline-secondary" (click)="isCollapsed = !isCollapsed"
+                            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                            <i class="fas fa-bars"></i>
+                    </button>
+                  </p>
+                    <div id="collapseExample" [ngbCollapse]="!isCollapsed">
+                        <div class="row">
+                           <ul class="list-group">
+                            <li class="list-group-item">
+                                <a routerLink='#' class="btn btn-link">Vue d'ensemble</a>
+                              </li>
+                            <li class="list-group-item">
+                                <a routerLink='#' class="btn btn-link">Ajouter un intervenant</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a routerLink='#' class="btn btn-link">Tableau des taches</a>
+                            </li>
+                              <li class="list-group-item">
+                                    <a routerLink='#' class="btn btn-link">Tableau des ressources</a>
+                             </li>
+                          </ul>
+                      </div>
+                    </div>
+            </div>
+          </div>
+            <div class="row">
+                <div class="col-10 col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="offset-1 col-2"><i class="far fa-calendar-alt"></i></div>
+                            <div class="col-8">
+                                <h3>Date de fin</h3>
+                                <p>{{project.dateFin}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="col-8">
+                                <h3>LOCATION</h3>
+                                <p>{{project.emplacement}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-comment-dollar"></i></div>
+                            <div class="col-8">
+                                <h3>BUDGET</h3>
+                                <p>{{project.budget}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-map"></i></div>
+                            <div class="col-8">
+                                <h3>Architecte</h3>
+                                <p>{{project.nomArchitecte}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <h2 class="text-center">Infos sur le projet</h2>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h3>Estimation de temps : 85 jours</h3>
+                    <h3>Estimation budget : {{project.budget}}</h3>
+                    <h3>Temps estime restant : 65 jours</h3>
+                    <h3>Total depenses : 230000frs</h3>
+                    <h3>Balance : +200000 frs</h3>
+                    <h3>Progression du projet : 40%</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3>Derniere mise a jour : 23/10/2019</h3>
+                    <div class='lastest row'>
+                        <img src="{{project.imageProjet}}" alt="" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+      </div>
+  </section>

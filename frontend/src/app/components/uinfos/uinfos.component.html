@@ -1,0 +1,45 @@
+<section>
+  <h3 class="text-center">Modifier mon profil</h3>
+  
+  <div class="alert alert-success" *ngIf="success">
+    <strong>Super !</strong> Votre profil a ete mis a jour  </div>
+  
+  <form #updateProfil="ngForm" (ngSubmit)="onUpdate(updateProfil)" class="offset-md-3 col-md-6">
+    <div class="form-group">
+      <label for="name">Votre nom</label>
+      <input id="name" class="form-control" type="text"  [(ngModel)]="infos.name" name='name' required>
+    </div>
+
+    <div class="form-group">
+      <label for="fname">Vos prenoms</label>
+      <input id="fname" class="form-control" type="text" name='fname' [ngModel]="infos.firstname" name='fname' required>
+    </div>
+
+    <fieldset>
+      <legend>Changer de mot de passe</legend>
+        <div class="form-group">
+            <label for="amdp">Ancien mot de passe</label>
+            <input id="amdp" class="form-control" type="password" name='amdp' ngModel>
+            <small class="text-danger">{{err.amdpErr}}</small>
+        </div>
+        <div class="form-group">
+          <label for="nmdp1">Nouveau mot de passe</label>
+          <input id="nmdp1" class="form-control" type="password" name='nmdp1' ngModel>
+          <small class="text-danger">{{err.nmdp}}</small>
+        </div>
+        <div class="form-group">
+          <label for="nmdp2">Confirmer votre nouveau mot de passe</label>
+          <input id="nmdp2" class="form-control" type="password" name='nmdp2' ngModel>
+          <small class='text-danger'>{{err.validMdp}}</small>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="picture">Image de profil</label>
+      <input id="picture" class="form-control" type="file" (change)="onFile($event)">
+      <small class="text-danger">{{err.img}}</small>
+    </div>
+    
+    <button type="submit" class='btn btn-primary'>Modifier mon profil</button>
+  </form>
+</section>
