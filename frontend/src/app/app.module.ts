@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //add
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +35,19 @@ import { NotifsComponent } from './components/notifs/notifs.component';
 import { DetailsProjectComponent } from './components/details-project/details-project.component';
 import { ProjectComponent } from './templates/project/project.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
+import { AddIntComponent } from './components/add-int/add-int.component';
+import { TachesComponent } from './components/taches/taches.component';
+import { RessourcesComponent } from './components/ressources/ressources.component';
+import { GalerieComponent } from './components/galerie/galerie.component';
+import { ProjectEComponent } from './templates/project-e/project-e.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { SuccessComponent } from './pages/success/success.component';
 
+
+//add
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarouselAcceuilComponent } from './components/carousel-acceuil/carousel-acceuil.component';
+import { MoreComponent } from './components/more/more.component';
 
 
 
@@ -60,6 +73,15 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
     DetailsProjectComponent,
     ProjectComponent,
     ProjectPageComponent,
+    AddIntComponent,
+    TachesComponent,
+    RessourcesComponent,
+    GalerieComponent,
+    ProjectEComponent,
+    AddTaskComponent,
+    SuccessComponent,
+    CarouselAcceuilComponent,
+    MoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +89,9 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
   ],
   providers: [
     AuthService,

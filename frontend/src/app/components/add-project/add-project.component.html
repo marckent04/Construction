@@ -1,42 +1,47 @@
-<div class="offset-md-3 col-md-6 mt-2 mt-md-0">
-    <h2 class="text-center">Ajout de projet</h2>
-    <form #add='ngForm' (ngSubmit)='create(add)'>
-        <div class="form-group">
-            <label for="name">Nom du projet <span class='text-info'>*</span></label>
-            <input type="text" class="form-control" id="name" placeholder="Nom du projet" name="name"  ngModel required>
-        </div>
-        <div class="form-group">
-            <label for="arch">Nom de l'architecte </label>
-            <input type="text" class="form-control" id="arch" placeholder="Nom de l'architecte" name="arch"  ngModel>
-            <small class="text-danger"></small>
-        </div>
-        <div class="form-group">
-            <label for="date">date de fin</label>
-            <input class="form-control" id="date" name="date" type='date' ngModel>
-            <small class="text-danger"></small>
-        </div>
-        <div class="form-group">
-            <label for="budget">Budget <span class='text-info'>*</span></label>
-            <input class="form-control" id="budget" name="budget" type='number' ngModel required>
-            <small class="text-danger"></small>
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" rows="3" name="description"  ngModel></textarea>
-            <small class="text-danger"></small>
-        </div>
+<section id='addC'>
 
-        <div class="form-group">
-            <label for="Emplacement">Emplacement <span class='text-info'>*</span></label>
-            <input class="form-control" id="Emplacement" rows="3" name="location"  ngModel required>
-        </div>
+    <div class="offset-md-3 col-md-6 mt-2 mt-md-0">
 
-        <div class="form-group">
-            <label for="image">Image projet <span class='text-info'>*</span></label>
-            <input type="file" id="image" class="form-control" (change)="onFile($event)" name="image" required>
-            <small class='text-danger'>{{imgErr}}</small>
-        </div>
-        <p class='text-info'><strong>* Ces champs doivent ete rempli obligatoirement</strong></p>
-        <button class="btn btn-primary btn-block" [disabled]='add.invalid'>Debuter un nouveau projet</button>
-    </form>
-</div>
+        <form #add='ngForm' (ngSubmit)='create(add)' id='form'>
+                <h2 class="text-center">Ajout de projet</h2>
+            <div class="form-group">
+                <label for="name">Nom du projet <span class='text-warning'>*</span></label>
+                <input type="text" class="form-control" id="name" placeholder="Nom du projet" name="name"  ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="arch">Nom de l'architecte </label>
+                <input type="text" class="form-control" id="arch" placeholder="Nom de l'architecte" name="arch"  ngModel>
+                <p class="text-danger"></p>
+            </div>
+            <div class="form-group">
+                <label for="date">date de fin</label>
+                <input class="form-control" id="date" name="date" type='date' ngModel>
+                <p class="text-danger">{{dateErr}}</p>
+            </div>
+            <div class="form-group">
+                <label for="budget">Budget <span class='text-warning'>*</span></label>
+                <input class="form-control" id="budget" name="budget" type='number' step="10000" placeholder="Entrer le budget" ngModel required>
+                <p class="text-danger"></p>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" name="description"  ngModel placeholder="Donner une description a votre projet"></textarea>
+                <p class="text-danger"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="Emplacement">Emplacement <span class='text-warning'>*</span></label>
+                <input class="form-control" id="Emplacement" name="location"  ngModel required placeholder="Ou sera construit ... ?">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image projet <span class='text-warning'>*</span></label>
+                <input type="file" id="image" class="form-control" (change)="onFile($event)" name="image" required ngModel>
+                <p class='text-danger'>{{imgErr}}</p>
+            </div>
+            <p class='text-warning'><strong>* Ces champs doivent ete rempli obligatoirement</strong></p>
+            <button class="btn btn-primary btn-block" [disabled]='add.invalid'>Debuter un nouveau projet</button>
+        </form>
+    </div>
+</section>
+<ngx-spinner></ngx-spinner>

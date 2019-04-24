@@ -1,20 +1,30 @@
 
 
-      <div class="body">
+      <div class="body container">
           <h1 class="text-center">Mes projets</h1>
           
           <!-- <div class="alert alert-warning" *ngIf="projects.length === 0">
               <strong>Desole</strong> Vous n'avez pas encore demarrer de projet
           </div> -->
           
-          <div class="row">
+          <div class="row" *ngIf="work === 1">
               <div class="col-md-3" *ngFor="let project of projects">
                     <app-project 
                     [nom]="project.nomProjet" 
                     [location]="project.emplacement" 
                     [img]="project.imageProjet"
                     [id]="project.id"
+                    [status]="project.status"
                     ></app-project>   
               </div>
           </div>
+
+          <div class="row" *ngIf="work !== 1">
+            <div class="col-md-3" *ngFor="let project of projects">
+                  <app-project-e 
+                  [infos]="project" 
+                  
+                  ></app-project-e>   
+            </div>
+        </div>
       </div>

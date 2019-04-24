@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-c',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarCComponent implements OnInit {
   public isCollapsed = false;
   
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+  }
+
+  deconnexion() {
+    localStorage.clear();
+    this.route.navigate(['/']);
   }
 
 }

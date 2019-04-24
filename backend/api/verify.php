@@ -12,19 +12,14 @@ class Verify
         return $data;
     }
 
-    public static function user($mail, $db)
+    public static function user($mail, $db, $table, $col)
     {
 
-        $result = $db->prepare('SELECT * FROM users WHERE mail = ?');
-        $result->execute([$mail]);
-        $result = $result->fetch();
+        $result = $db->prepare('SELECT * FROM ? WHERE ? = ?');
+        $result->execute([$table, $col, $mail]);
+        $result = $result->fetchAll();
 
-        if(empty($result)) {
-            return false;
-        }
-        else {
-            return $result['mail'];
-        }
+       return $result;
     }
 
     public static function image ($tmpname){

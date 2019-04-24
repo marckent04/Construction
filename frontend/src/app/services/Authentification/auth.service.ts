@@ -9,7 +9,7 @@ import { ServerConfigService } from '../config/server-config.service';
   providedIn: 'root'
 })
 export class AuthService implements OnInit {
-  constructor(private http: HttpClient, private config: ServerConfigService) {}
+  constructor(private http: HttpClient, private config: ServerConfigService, private router: Router) {}
 
   PHP_API_URL = this.config.PHP_API_URL;
 
@@ -19,11 +19,11 @@ export class AuthService implements OnInit {
   ngOnInit() { }
 
 
-  inscription (user: User) {
+  inscription(user: User) {
     return this.http.post(`${this.PHP_API_URL}/inscription.php`, user);
   }
 
-  connexion (user: User) {
+  connexion(user: User) {
     return this.http.post(`${this.PHP_API_URL}/connexion.php`, user);
   }
 }

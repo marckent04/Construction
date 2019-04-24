@@ -7,19 +7,19 @@
       <div class="collapse navbar-collapse"  id="collapseExample" [ngbCollapse]="!isCollapsed">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item text-center">
-                  <a class="nav-link text-center" [routerLink]="[{outlets: { options: 'add'}}]">Ajouter un projet</a>
+                  <a class="nav-link text-center" [routerLink]="['/welcome', {outlets: { options: 'add'}}]">Ajouter un projet</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-center" [routerLink]="[{outlets: { options: 'projects'}}]">Voir mes projets</a>
+                  <a class="nav-link text-center" [routerLink]="['/welcome', {outlets: { options: 'projects'}}]">Voir mes projets</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-center" [routerLink]="[{outlets: { options: 'profile'}}]">Modifier mes infos</a>
+                  <a class="nav-link text-center" [routerLink]="['/welcome', {outlets: { options: 'profile'}}]">Modifier mes infos</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-center" [routerLink]="[{outlets: { options: 'news'}}]">Notifications</a>
+                  <a class="nav-link text-center" [routerLink]="['/welcome', {outlets: { options: 'news'}}]">Notifications</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-center" routerLink="#">Me deconnecter</a>
+                  <a class="nav-link text-center" (click)="deconnexion()">Me deconnecter</a>
               </li>
           </ul>
       </div>

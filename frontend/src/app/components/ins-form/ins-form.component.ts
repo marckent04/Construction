@@ -22,7 +22,7 @@ export class InsFormComponent implements OnInit {
     mdp: null
   }
 
-  constructor(private auth: AuthService, private route: Router) { 
+  constructor(private auth: AuthService, private route: Router) {
   }
 
   ngOnInit() {

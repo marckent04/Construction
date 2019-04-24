@@ -1,17 +1,25 @@
 <section>
     <div class="container">
       <div class="row">
-          <form (ngSubmit)='inscription(fc)' #fc="ngForm" class='offset-md-4 offset-1 col-10 col-md-4 inscription'>
+          <form (ngSubmit)='inscription(fc)' #fc="ngForm" class='offset-md-2 offset-1 col-10 col-md-8 inscription'>
               <h2 class="text-center">Inscription</h2>
               <div class="divider"></div>
-              <div class="form-group">
-                <label for="fname">Prenoms</label>
-                <input type="text" name="fname" id="fname" class="form-control" placeholder="Vos prenoms" ngModel required>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="fname">Prenoms</label>
+                      <input type="text" name="fname" id="fname" class="form-control" placeholder="Vos prenoms" ngModel required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-group">
+                     <label for="name">Nom</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Votre nom" ngModel required>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Votre nom" ngModel required>
-              </div>
+              
+             
               <div class="form-group">
                 <label for="mail">Adresse e-mail</label>
                 <input type="email" name="mail" id="mail" class="form-control" placeholder="adresse e-mail" ngModel required>
@@ -21,9 +29,8 @@
                 <div class="form-group">
                   <label for="prof">votre profession</label>
                   <select class="form-control" name="work" id="prof" ngModel required>
-                    <option value="pa">Particulier</option>
-                    <option value="ent">Entreprise / entrepeneur</option>
-                    <option value="fns">Chef-macon</option>
+                    <option value="1" selected="selected">Particulier</option>
+                    <option value="2">Entreprise / entrepeneur</option>
                   </select>
                 </div>
               </div>
@@ -49,9 +56,9 @@
                       <small class="text-danger" *ngIf="pass1.valid">Vos mots de passe doivent etre pareils</small>
                   </ng-template>
               </div>
-              <small *ngIf="fc.invalid" class="text-danger">*Veuillez renseigner tous les champs</small>
+              <small *ngIf="fc.invalid" class="text-info">*Veuillez renseigner tous les champs</small>
               <div class="form-group">
-                <button class="btn btn-primary btn-block" [disabled]='fc.invalid'>S'inscrire</button>
+                <button class="btn btn-kent btn-block" [disabled]='fc.invalid'>S'inscrire</button>
               </div>
           </form>
       </div>

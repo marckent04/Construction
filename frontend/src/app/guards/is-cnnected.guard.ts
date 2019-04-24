@@ -14,7 +14,7 @@ export class IsCnnectedGuard  implements CanActivate {
       if (localStorage.length > 0) {
         return true;
       } else {
-        this.route.navigate(['/connexion']);
+        this.route.navigate(['/inscription']);
       }
 
     }

@@ -13,12 +13,17 @@ import { UinfosComponent } from './components/uinfos/uinfos.component';
 import { NotifsComponent } from './components/notifs/notifs.component';
 import { DetailsProjectComponent } from './components/details-project/details-project.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
+import { AddIntComponent } from './components/add-int/add-int.component';
+import { GalerieComponent } from './components/galerie/galerie.component';
+import { TachesComponent } from './components/taches/taches.component';
+import { RessourcesComponent } from './components/ressources/ressources.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { SuccessComponent } from './pages/success/success.component';
 
 const routes: Routes = [
   {path: 'inscription', canActivate: [IsAuthService], component: PageInscriptionComponent},
   {path: 'connexion', canActivate: [IsAuthService], component: PageConnexionComponent},
   {path: 'about',  canActivate: [IsAuthService], component: AboutPageComponent},
-  //{path: 'welcome', canActivate: [IsCnnectedGuard], component: DashPageComponent},
   {path: '',  canActivate: [IsAuthService], component: AcceuilComponent},
 
   //dashboard
@@ -27,11 +32,19 @@ const routes: Routes = [
     { path: 'add', component: AddProjectComponent, outlet: 'options'},
     { path: 'profile', component: UinfosComponent, outlet: 'options'},
     { path: 'news', component: NotifsComponent, outlet: 'options'},
+    {path: '', component: ProjectsComponent, outlet: 'options'}
   ]},
 
-  {path: 'project/:id', canActivate: [IsCnnectedGuard], component: ProjectPageComponent //, children: [
-    //{path: ''}]
-  },
+  {path: 'project/:id', canActivate: [IsCnnectedGuard], component: ProjectPageComponent, children: [
+    {path: '', component: DetailsProjectComponent, outlet: 'project'},
+    {path: 'addInt', component: AddIntComponent, outlet: 'project'},
+    {path: 'addT', component: AddTaskComponent, outlet: 'project'},
+    {path: 'galerie', component: GalerieComponent, outlet: 'project'},
+    {path: 'taches', component: TachesComponent, outlet: 'project'},
+    {path: 'ressources', component: RessourcesComponent, outlet: 'project'},
+  ]},
+
+  {path: 'success', canActivate: [IsCnnectedGuard], component: SuccessComponent}
 ];
 
 @NgModule({

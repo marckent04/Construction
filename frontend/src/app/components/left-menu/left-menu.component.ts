@@ -9,15 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./left-menu.component.css']
 })
 export class LeftMenuComponent implements OnInit {
-  user: User;
-  constructor(private auth: AuthService,private route: Router) {
-    this.user = this.auth.connected;
+  user: Storage;
+  constructor(private route: Router, private auth: AuthService) {
+    this.user = localStorage;
   }
 
-  deconnexion () {
+  deconnexion() {
     localStorage.clear();
     this.route.navigate(['/']);
   }
+
 
   ngOnInit() {
   }

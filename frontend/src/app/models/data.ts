@@ -10,4 +10,8 @@ class Data {
   work: string;
   firstname: string;
   success: any;
+  ok: boolean;
+  exist: boolean;
+  invitation: any;
+  project: any;
 }

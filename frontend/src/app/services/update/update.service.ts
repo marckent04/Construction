@@ -7,9 +7,9 @@ import { AuthService } from '../Authentification/auth.service';
   providedIn: 'root'
 })
 export class UpdateService {
+  constructor(private http: HttpClient, private config: ServerConfigService, auth: AuthService) {}
 
   PHP_API_URL = this.config.PHP_API_URL;
-  constructor(private http: HttpClient, private config: ServerConfigService, auth: AuthService) {}
 
   user(user) {
     return this.http.post(`${this.PHP_API_URL}/updateInfos.php`, user);
@@ -25,8 +25,24 @@ export class UpdateService {
         localStorage.setItem('work', data.work);
         localStorage.setItem('mail', data.mail);
         localStorage.setItem('mdp', data.mdp);
-        localStorage.setItem('picture', data.picture);
+        localStorage.setItem('picture', `${this.config.PROFILE_PATH}/${data.picture}`);
       }
     )
   }
+
+  invitation(id: number) {
+    return this.http.get(`${this.PHP_API_URL}/acceptInvit.php?id=${id}`);
+  }
+
+  taskStatus(form: FormData) {
+    return this.http.post(`${this.PHP_API_URL}/taskend.php`, form);
+  }
+
+  task(id: number, choice: number) {
+    return this.http.get(`${this.PHP_API_URL}/taskValidate.php?id=${id}&choice=${choice}`);
+  }
 }
+
+
+
+

@@ -1,0 +1,11 @@
+section {
+    position: relative;
+    width: 100%;
+}
+
+form {
+    background: #fff;
+    padding-top: 1%;
+    border-radius: 2%;
+    margin-bottom: 20px;
+}

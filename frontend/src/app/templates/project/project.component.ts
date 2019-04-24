@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { DeleteService } from 'src/app/services/delete/delete.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ReadService } from 'src/app/services/read/read.service';
 
 @Component({
   selector: 'app-project',
@@ -12,7 +14,26 @@ export class ProjectComponent implements OnInit {
   @Input() location: string;
   @Input() img: string;
   @Input() id: number;
-  constructor(private route: Router) { }
+  @Input() status: number;
+
+  delete = false;
+
+  removeProject(id: number) {
+    if (confirm('Vous etes sur le point de supprimer votre projet')) {
+      if (confirm('Etes-vous sur de vouloir supprimer votre projet ? cette action est irreversible')) {
+        this.spinner.show();
+        this.remove.project(+id).subscribe(
+          (data) => {
+            this.spinner.hide();
+            if (data) {
+              this.delete = true;
+            }
+          }
+        )
+      }
+    }
+  }
+  constructor(private remove: DeleteService, private spinner: NgxSpinnerService, private read: ReadService) { }
 
   ngOnInit() {
   }

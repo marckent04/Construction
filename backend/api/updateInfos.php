@@ -3,7 +3,12 @@
 require 'database.php';
 require 'verify.php';
 
+
 if (isset($_POST) && !empty($_POST)) {
+
+define('PATH', '../../frontend/src/assets/uploads/profile/');
+
+
     extract($_POST,EXTR_OVERWRITE);
     $results = ['mdp' => true, 'success' => true, 'img' => null, 'upload' => false];
     $name = Verify::input($name);
@@ -43,25 +48,35 @@ if (isset($_POST) && !empty($_POST)) {
         $newMdp = $infosUser['mdp'];
     }
 
-
+    
     if (isset($_FILES) && !empty($_FILES)) {
-        $img = $_FILES["image"]["tmp_name"];
-        $imgName = $_FILES["image"]["name"];
-        $mime = mime_content_type($img);
-        $data = file_get_contents($img);
-
-        $ok = Verify::image($img);
-        if ($ok) {
-            $base64 = 'data:' . $mime. ';base64,'. base64_encode($data);
-            $results['img'] = true;
-        }
-        else {
+        if ($_FILES['image']['error'] > 0) {
             $results['img'] = false;
-            $base64 = $infosUser['picture'];
             $results['success'] = false;
+        } else {
+            $img = $_FILES["image"]["tmp_name"];
+            $imgName = $_FILES["image"]["name"];
+            $mime = mime_content_type($img);
+            $data = file_get_contents($img);
+
+            $ok = Verify::image($img);
+            if ($ok) {
+                $target_file = PATH . basename($imgName);
+                if (move_uploaded_file($img, $target_file)) {
+                    $results['img'] = true;
+                    $imgName = basename($imgName);
+                }
+                //$base64 = 'data:' . $mime. ';base64,'. base64_encode($data);
+            }
+            else {
+                $results['img'] = false;
+                $imgName = $infosUser['picture'];
+                $results['success'] = false;
+            }
         }
+        
     } else {
-        $base64 = $infosUser['picture'];
+        $imgName = $infosUser['picture'];
     }
 
 
@@ -70,7 +85,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     if ($results['success']) {
         $update = $db->prepare('UPDATE users SET name = ?, firstname = ?, mdp = ?, picture = ? WHERE id = ?');
-        $results['success'] = $update->execute([$name, $fname, $newMdp, $base64, $id]);
+        $results['success'] = $update->execute([$name, $fname, $newMdp, $imgName, $id]);
     }
 
 

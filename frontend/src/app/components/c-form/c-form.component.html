@@ -1,30 +1,12 @@
+
 <div class="container-fluid connexion">
   <div class="connexionForm">
     <div class="row">
-      <div class="col-md-6 d-none d-md-block bloc">
-          <ngb-carousel id="carousel">
-              <ng-template ngbSlide>
-                <div class="c1">
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class='carousel-div'>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class='carousel-div'>
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-              </ng-template>
-            </ngb-carousel>
+      <div class="col-md-4 d-none d-md-block bloc bloc-carousel">
+        <img src='{{path}}/{{imgProfile}}' alt='photo de profil'>
       </div>
-      <div class="offset-1 offset-md-0 col-10 col-md-6 bloc blocf">
-        <form #fc='ngForm' (ngSubmit)='connexion(fc)' class="col-md-8 coForm">
+      <div class="offset-1 offset-md-0 col-10 col-md-8 bloc blocf">
+        <form #fc='ngForm' (ngSubmit)='connexion(fc)' class="offset-md-3 col-md-8 coForm">
           <h3 class="text-center">Connexion</h3>
           <div class="form-group">
             <label for="mail">Email</label>
@@ -37,7 +19,7 @@
             <small class="text-danger">{{err.mdp}}</small> 
           </div>
           <div class="form-group">
-            <button class='btn btn-primary btn-block'>Me connecter</button>
+            <button class='btn btn-block btn-kent' [disabled]="fc.invalid">Me connecter</button>
           </div>
         </form>
       </div>
@@ -45,3 +27,4 @@
   </div>
   
 </div>
+<ngx-spinner></ngx-spinner>

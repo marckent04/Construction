@@ -21,7 +21,7 @@ if (isset($postdata) && !empty($postdata)) {
     
     $mdpCrypt = password_hash($mdp, PASSWORD_BCRYPT, $options);
 
-    $results = Verify::user($mail, $db);
+    $results = Verify::user($mail, $db, 'users', 'mail');
     if(!$results) {
         $query = $db->prepare('INSERT INTO users (name, firstname, mail, mdp, work) VALUES( ?, ?, ?, ?, ?)');
         $query->execute([$name, $fname, $mail, $mdpCrypt, $work]);

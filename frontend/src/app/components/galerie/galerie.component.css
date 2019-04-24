@@ -1,0 +1,19 @@
+.images {
+    width: 100%;
+    height: 200px;
+}
+
+.img-thumbnail {
+    background: #f47f85;
+
+}
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.imgCard {
+    width: 90%;
+    padding: 2%;
+    background: #fea235;
+}

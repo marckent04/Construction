@@ -1,17 +1,19 @@
 .profilePic {
-    height: 150px;
-    border-radius: 100%;
-    margin: 10px auto;
-    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    width: 160px;
 }
 
 .profile {
-    display: flex;
-    justify-content: center;
+    height: 160px;
+    width: 100%;
+    margin: 10px auto;
 }
 
+
+
 .profileMenu a {
-    color: orange !important;
+    color: white !important;
 }
 
 .leftMenu {
@@ -20,20 +22,27 @@
     position: fixed;
     z-index: 500;
     box-shadow: 1px 0px 1px black;
-    padding: 20px 10px 10px 0px;
+    padding: 20px 10px 10px 10px;
+    background: #ffc300;
+    top: 0;
+    left: 0;
+    color: #4397d7;
 }
 
-a:hover {
+.profileMenu a:hover {
     text-decoration: none;
-    text-shadow: 0px 0px 2px black;
+    color: #4397d7 !important;
 }
 
 li {
+    background: #4397d7;
     margin: 1px 0;
 }
 li:hover {
-    border-color: black;
-    box-shadow: 0px 0px 2px black;
+    background: white;
+    /* border-color: black; */
+    /* color: #f5666a !important; */
+    /* box-shadow: 0px 0px 2px black; */
 }
 
 .activate {

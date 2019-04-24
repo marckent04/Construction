@@ -1,3 +1,74 @@
-<p>
-  details-project works!
-</p>
+<section>
+    <div class="container-fluid">
+            <div class="row d-none d-md-flex">
+                <div class="col-10 col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="offset-1 col-2"><i class="far fa-calendar-alt"></i></div>
+                            <div class="col-8">
+                                <h3>Date de fin</h3>
+                                <p>{{project.dateFin}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="col-8">
+                                <h3>LOCATION</h3>
+                                <p>{{project.emplacement}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-comment-dollar"></i></div>
+                            <div class="col-8">
+                                <h3>BUDGET</h3>
+                                <p>{{project.budget}} F.cfa</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ptiInfos">
+                        <div class="row">
+                            <div class="col-2 offset-1 "><i class="fas fa-map"></i></div>
+                            <div class="col-8">
+                                <h3>Architecte</h3>
+                                <p>{{project.nomArchitecte}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="text-center">Infos sur le projet</h2>
+            <div class="row" id='infos'>
+                <div class="col-md-6">
+                    <div class="imgP text-center">
+                         <img src="{{path}}/{{project.imageProjet}}" class='img-thumbnail border border-success' alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Estimation de temps : 85 jours</h3>
+                    <h3>Estimation budget : {{project.budget}} Frs CFA</h3>
+                    <h3>Temps estime restant : 65 jours</h3>
+                    <h3>Total depenses : 230000frs</h3>
+                    <h3>Balance : +200000 frs</h3>
+                    <h3>Dirige par : {{project.fEnt}} {{project.nEnt}}</h3>
+                </div>
+            </div>
+    </div>
+</section>

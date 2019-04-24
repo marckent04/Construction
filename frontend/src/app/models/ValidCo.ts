@@ -8,5 +8,7 @@ export class ValidCo {
     mailR: number;
     mdpR: number;
     picture: string;
+    Work: any;
+  type: string;
 
 }

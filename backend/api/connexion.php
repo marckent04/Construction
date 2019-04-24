@@ -13,7 +13,7 @@ if (isset($postdata) && !empty($postdata)) {
     $mdp = Verify::input($mdp);
     $mail = Verify::input($mail);
 
-    $query = $db->prepare('SELECT * FROM users WHERE mail = ?');
+    $query = $db->prepare('SELECT users.*, typeintervenant.lib FROM users, typeintervenant WHERE mail = ? AND typeintervenant.id = users.work');
     $query->execute([$mail]);
     $infos = $query->fetch();
 
@@ -30,6 +30,7 @@ if (isset($postdata) && !empty($postdata)) {
             $results['Work'] = $infos['work'];
             $results['picture'] = $infos['picture'];
             $results['mdp'] = $infos['mdp'];
+            $results['type'] = $infos['lib'];
 
         }
     }

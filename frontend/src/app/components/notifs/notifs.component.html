@@ -1,3 +1,23 @@
-<p>
-  notifs works!
-</p>
+<div class="container">
+  <h2 class="text-center">Notifications</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Demandes d'adehsion a projet</h5>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let inv of invitations">
+            <div class="row">
+              <div class="col-md-8">
+                  {{inv.firstname}} {{inv.name}} vous a demande d'adherer au projet {{inv.nomProjet}} a {{inv.dateEnvoi}}
+              </div>
+              <div class="col-md-4 options">
+                  <button type="button" class="btn btn-outline-success" (click)="choix(inv.id, 1)">J'accepte</button>
+                  <button type="button" class="btn btn-outline-danger"  (click)="choix(inv.id, 0)">Je refuse</button>
+                  <button type="button" class="btn btn-outline-info">Plus d'infos</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>

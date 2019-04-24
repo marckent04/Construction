@@ -1,0 +1,10 @@
+nav {
+    background: -webkit-linear-gradient(left, #fea235, #fea235, #f47f85);
+    background: -o-linear-gradient(left, #fea235, #f98d67, #f47f85);
+    background: -webkit-linear-gradient(left, #fea235, #f98d67, #f47f85);
+}
+
+.nav-link {
+    color: white !important;
+}
+

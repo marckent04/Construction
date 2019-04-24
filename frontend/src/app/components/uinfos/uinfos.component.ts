@@ -70,6 +70,7 @@ export class UinfosComponent implements OnInit {
     if (this.err.status === true) {
       this.update.user(updateForm).subscribe(
         (data: Data) => {
+          console.log(data);
           if (data.success) {
             this.update.session(+localStorage.getItem('id'));
             this.success = true;

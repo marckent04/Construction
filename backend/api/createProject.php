@@ -2,8 +2,8 @@
    require 'database.php';
    require 'verify.php';
 
-
-   $success = ['post' => false, 'upload' => false, 'img' => false];
+   define('PATH', '../../frontend/src/assets/uploads/projects/');
+   $success = ['post' => false, 'upload' => false, 'img' => true];
     $insert = ['nP' => null, 'arch' => null,'budget' => null,  'desc' => null, 'dateFin' => null, 'location' => null];
 
     if(isset($_POST) && !empty($_POST)) {
@@ -17,13 +17,9 @@
         $description = Verify::input($description);
         $idProprio = Verify::input($idProprio);
 
-
         $insert['nP'] = $nom;
         $insert['location'] = $location;
         $insert['budget'] = $budget;
-
-        
-
 
         if (!empty($arch)) {
             $insert['arch'] = $arch; 
@@ -40,87 +36,41 @@
 
 
     }
-    if ($_FILES['image']) {
-        $img = $_FILES["image"]["tmp_name"];
-        $imgName = $_FILES["image"]["name"];
-        $mime = mime_content_type($img);
-        $data = file_get_contents($img);
 
-        $ok = Verify::image($img);
-        if ($ok) {
-            $base64 = 'data:' . $mime. ';base64,'. base64_encode($data);
-            $success['img'] = true;
+    if ($_FILES['image']) {
+        if ($_FILES['image']['error'] > 0) {
+            $success['img'] = false; 
+        }
+        else {
+            
+            $img = $_FILES["image"]["tmp_name"];
+            $imgName = $_FILES["image"]["name"];
+            $mime = mime_content_type($img);
+            $data = file_get_contents($img);
+
+            $ok = Verify::image($img);
+
+            if ($ok) {
+                $target_file = PATH . basename($imgName);
+                //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                //echo json_encode($imageFileType);
+                // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                //     $success['img'] = false;
+                // } else {
+                    if(move_uploaded_file($img, $target_file)) {
+                        $success['upload'] = true;
+                        $imgName = basename($imgName);
+                   }
+                //}
+            } else {
+                $success['img'] = false;
+            }
         }
     }
 
     if ($success['post'] && $success['img']) {
         $add = $db->prepare('INSERT INTO project (nomProjet, nomArchitecte, budget, dateFin, emplacement, imageProjet, id_proprio) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $success['upload'] = $add->execute([$insert['nP'], $insert['arch'], $insert['budget'], $insert['dateFin'], $insert['location'], $base64, $idProprio]);
+        $success['upload'] = $add->execute([$insert['nP'], $insert['arch'], $insert['budget'], $insert['dateFin'], $insert['location'], $imgName, $idProprio]);
     }
 
     echo json_encode($success);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//         $error = $_FILES["image"]["error"];
-
-//         if ($error > 0) {
-//             $response = array(
-//                 "status" => "error",
-//                 "error" => true,
-//                 "message" => "Error uploading the file!"
-//             );
-//         }
-//         else 
-//         {
-//             $random_name = rand(1000,1000000)."-".$imgName;
-//             $upload_name =$upload_dir . strtolower($random_name);
-//             $upload_name = preg_replace('/\s+/', '-', $upload_name);
-            
-//             if(move_uploaded_file($img , $upload_name)) {
-//                 $response = array(
-//                     "status" => "success",
-//                     "error" => false,
-//                     "message" => "File uploaded successfully",
-//                     "url" => $upload_name
-//                 );
-
-//                 $data = base64_encode($img); 
-//                 echo $data;
-//             }else
-//             {
-//                 $response = array(
-//                     "status" => "error",
-//                     "error" => true,
-//                     "message" => "Error uploading the file!"
-//                 );
-//                 }
-//             }
-//         //$crypt = base64_encode($file);
-//     //$target = 'C:\Users\Labo de travail\Desktop\upload';
-//     //move_uploaded_file($_FILES["image"]["tmp_name"], $target);
-//     echo json_encode($response);
-
-//         }
-// }
-
-
