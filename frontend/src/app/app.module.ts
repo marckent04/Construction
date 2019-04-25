@@ -41,13 +41,13 @@ import { RessourcesComponent } from './components/ressources/ressources.componen
 import { GalerieComponent } from './components/galerie/galerie.component';
 import { ProjectEComponent } from './templates/project-e/project-e.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
-import { SuccessComponent } from './pages/success/success.component';
 
 
 //add
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarouselAcceuilComponent } from './components/carousel-acceuil/carousel-acceuil.component';
 import { MoreComponent } from './components/more/more.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -79,9 +79,9 @@ import { MoreComponent } from './components/more/more.component';
     GalerieComponent,
     ProjectEComponent,
     AddTaskComponent,
-    SuccessComponent,
     CarouselAcceuilComponent,
     MoreComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

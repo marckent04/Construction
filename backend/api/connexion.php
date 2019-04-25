@@ -6,7 +6,7 @@ require './database.php';
 $postdata = file_get_contents("php://input");
 
 if (isset($postdata) && !empty($postdata)) {
-    $results = ['mailR' => 0, 'mdpR' => 0];
+    $results = ['mailR' => 0, 'mdpR' => 0, 'profil' => 0, 'min' => 0];
     $postdata = json_decode($postdata);
     $mail = $postdata->mail;
     $mdp =$postdata->mdp;
@@ -32,6 +32,9 @@ if (isset($postdata) && !empty($postdata)) {
             $results['mdp'] = $infos['mdp'];
             $results['type'] = $infos['lib'];
 
+        } else {
+            $results['profile'] = $infos['picture'];
+            $results['min'] = $infos['firstname'] . ' ' . $infos['name'];
         }
     }
     echo json_encode($results);

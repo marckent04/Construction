@@ -1,5 +1,6 @@
 
     <div class="card project" *ngIf="!delete">
+            <button class="btn btn-success ok"><i class="fas fa-check-circle"></i></button>
             <button class="btn btn-danger supp" (click)="removeProject(id)"><i class="fa fa-times-circle"></i></button>
         <div class='imgProject'>
             <img src="{{img}}" class="card-img-top" alt="{{nom}}">

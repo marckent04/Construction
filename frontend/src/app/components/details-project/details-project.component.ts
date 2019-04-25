@@ -26,7 +26,13 @@ export class DetailsProjectComponent implements OnInit {
     createdAt: null,
     id_proprio: null,
     status: null,
+    depTache: 0,
+    depUser: 0,
+    totalDep: 0,
+    balance: 0,
   };
+
+  depenses: any;
   public isCollapsed = false;
   constructor(private route: ActivatedRoute, private read: ReadService,private config: ServerConfigService) {
     this.id = +this.route.snapshot.params['id'];
@@ -34,8 +40,17 @@ export class DetailsProjectComponent implements OnInit {
     this.read.project(this.id).subscribe(
       (data: Project) =>  {
         console.log(data);
-        this.project = data;
-        console.log(this.project);
+        this.project = data[0];
+        const dep = data[1];
+        if (dep[0].montant) {
+          this.project.depTache = +dep[0].montant;
+        }
+
+        if (dep[1].montant) {
+          this.project.depUser = +dep[1].montant;
+        }
+        this.project.totalDep = this.project.depTache + this.project.depUser;
+        this.project.balance = +this.project.budget - this.project.totalDep;
       }
     );
   }

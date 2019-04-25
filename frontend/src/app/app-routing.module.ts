@@ -18,7 +18,6 @@ import { GalerieComponent } from './components/galerie/galerie.component';
 import { TachesComponent } from './components/taches/taches.component';
 import { RessourcesComponent } from './components/ressources/ressources.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
-import { SuccessComponent } from './pages/success/success.component';
 
 const routes: Routes = [
   {path: 'inscription', canActivate: [IsAuthService], component: PageInscriptionComponent},
@@ -43,8 +42,6 @@ const routes: Routes = [
     {path: 'taches', component: TachesComponent, outlet: 'project'},
     {path: 'ressources', component: RessourcesComponent, outlet: 'project'},
   ]},
-
-  {path: 'success', canActivate: [IsCnnectedGuard], component: SuccessComponent}
 ];
 
 @NgModule({

@@ -5,13 +5,13 @@
           <div *ngFor="let task of tasks">
             <ngb-panel id="custom-panel-{{task.id}}" >
               <ng-template ngbPanelHeader let-opened="collapsed">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h5 class="m-0 text-info title">{{task.title | uppercase}}</h5>
+                <div class="">
+                  <h5 class="m-0 title">{{task.title | uppercase}}</h5>
                   <h6 *ngIf="task.valid == 1">Statut : <span *ngIf="task.statut == 0" class="text-warning">En cours</span><span *ngIf="task.statut == 1" class="text-success">Termine le {{task.finishedAt}}</span></h6>
                   <h6>Debut des travaux : {{task.begin}}</h6>
                   <h6>Deadline : {{task.deadline}}</h6>
                   <h6 *ngIf="work !== 1">Dirige par : {{task.chef}}</h6>
-                  <button ngbPanelToggle class="btn btn-link p-0"><i class="fas fa-caret-square-down"></i></button>
+                  <button ngbPanelToggle class="btn btn-block bg-kent p-0"><i class="fas fa-caret-square-down text-warning"></i></button>
                 </div>
               </ng-template>
               <ng-template ngbPanelContent>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="row">
                   <div class="col-md-9">
-                    <form class="form-inline" #images="ngForm" (ngSubmit)="finished(task.id)" *ngIf="task.statut == 0">
-                      <input type="file" name="images[]" multiple id="" class="form-control" (change)="onFiles($event)">
-                      <button class="btn btn-outline-success">Travaux termines</button>
+                    <form class="form-inline" #images="ngForm" (ngSubmit)="finished(task.id)" *ngIf="task.statut == 0 && task.valid == 1 && work != 1">
+                      <input type="file" name="images[]" multiple class="form-control" (change)="onFiles($event)" ngModel required>
+                      <button class="btn btn-outline-success" [disabled]="images.invalid"><i class="fas fa-clipboard-check"></i> Travaux termines</button>
                     </form>
-                      
+                    <p *ngIf="task.statut == 1" class="text-warning">{{task.nbre}} images ont etes ajoutes</p>
                   </div>
                   <div class="col-md-3 justify-content-end">
                     <small><strong>Cree le {{task.createAt}}</strong></small>

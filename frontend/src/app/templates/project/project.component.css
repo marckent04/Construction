@@ -49,3 +49,13 @@
     text-align: center;
 
 }
+
+.ok {
+    position: absolute;
+    left: 0;
+    height: 40px;
+    width: 45px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 100%;
+    text-align: center;
+}

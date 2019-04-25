@@ -18,7 +18,7 @@ export class CFormComponent implements OnInit {
   constructor(private route: Router, private auth: AuthService, private spinner: NgxSpinnerService, private config: ServerConfigService) { }
   
   path = this.config.PROFILE_PATH;
-  
+  name: string;
   imgProfile: string;
   ngOnInit() {
   }
@@ -29,6 +29,7 @@ export class CFormComponent implements OnInit {
   user: User = {id: null, name: null, fname: null, mail: null, work: null, mdp: null, picture: null};
 
   connexion(form: NgForm) {
+    this.imgProfile = this.name = null;
     const r1 = /^(([^<()[\]\\.,;:\s@\]+(\.[^<()[\]\\.,;:\s@\]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
 
     if(!r1.test(form.value.mail)) {
@@ -41,12 +42,13 @@ export class CFormComponent implements OnInit {
       this.user.mdp = form.value.mdp;
       this.auth.connexion(this.user).subscribe(
         (data: ValidCo) => {
-          console.log(data);
           if (data.mailR === 0) {
             this.err.mail = 'Ce compte n\'existe pas';
           } else {
             this.err.mail = '';
             if (data.mdpR === 0) {
+              this.imgProfile = data.profile;
+              this.name = data.min;
               this.err.mdp = 'Mot de passe incorrect';
             }
           }

@@ -33,6 +33,10 @@ export class ProjectComponent implements OnInit {
       }
     }
   }
+
+  finishedProject(id: number) {
+    
+  }
   constructor(private remove: DeleteService, private spinner: NgxSpinnerService, private read: ReadService) { }
 
   ngOnInit() {

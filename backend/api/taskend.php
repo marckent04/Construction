@@ -41,8 +41,8 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
 
         if ($results['upload']) {
             foreach ($toDb as $value) {
-                $req2 = $db->prepare('INSERT INTO images (id_task, img) VALUES (?, ?)');
-                $req2->execute([$id, $value]);
+                $req2 = $db->prepare('INSERT INTO images (id_task, img, id_project) VALUES (?, ?, (SELECT id_project FROM taches WHERE id = ?))');
+                $req2->execute([$id, $value, $id]);
             }
         }
     }

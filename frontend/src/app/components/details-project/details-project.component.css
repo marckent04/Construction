@@ -1,6 +1,6 @@
 section {
     /* padding-top: 60px; */
-    color: black !important;
+    color: #fff !important;
     /* background: rgba(000, 000, 000, 0.6); */
     position: relative;
     height: inherit;
@@ -18,7 +18,7 @@ section {
 
 .ptiInfos {
     height: 100px;;
-    background: gray;
+    background: #4397d7;
     color: white;
     display: flex;
     flex-direction: column;
@@ -40,6 +40,9 @@ section {
     height: 250px;
 }
 
+.bg-kent {
+    box-shadow: 0px 0px 5px black;
+}
 
 @media (min-width: 992px) {
 
@@ -47,3 +50,4 @@ section {
         padding-top: 5px;
     }
 }
+

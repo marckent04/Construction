@@ -1,9 +1,20 @@
-nav {
+/* nav {
     background: -webkit-linear-gradient(left, #fea235, #fea235, #f47f85);
     background: -o-linear-gradient(left, #fea235, #f98d67, #f47f85);
     background: -webkit-linear-gradient(left, #fea235, #f98d67, #f47f85);
-}
+} */
 
 .nav-item > a {
     color: white !important;
+}
+
+.profilePic {
+    height: inherit;
+    border-radius: 50%;
+    width: 160px;
+}
+.profile {
+    height: 160px;
+    width: 100%;
+    margin: 10px auto;
 }

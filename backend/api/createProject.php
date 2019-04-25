@@ -51,7 +51,7 @@
             $ok = Verify::image($img);
 
             if ($ok) {
-                $target_file = PATH . basename($imgName);
+                $target_file = PATH . $idProprio .'-'. basename($imgName);
                 //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                 //echo json_encode($imageFileType);
                 // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {

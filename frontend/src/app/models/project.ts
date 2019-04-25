@@ -9,4 +9,8 @@ class Project {
     createdAt: Date;
     id_proprio: number;
     status: number ;
+    depTache: number;
+    depUser: number;
+    totalDep: number;
+    balance: number;
 }

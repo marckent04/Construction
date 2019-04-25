@@ -6,13 +6,19 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     $id = Verify::input($_GET['id']);
 
+    
     //$depenses = $db->prepare('SELECT SUM(taches.montant) AS montant FROM taches WHERE taches.id_project = ? AND taches.valid = 1 UNION (SELECT depenses.lib, depenses.description, depenses.montant, depenses.date_dep FROM depenses WHERE depenses.id_project = ?) ORDER BY dateD desc');
     $req = $db->prepare($sql);
     $ok = $req->execute([$id, $id]);
+    
     if ($ok) {
         $project = $req->fetch();
     }
 
-    echo json_encode($project);
+    $req2 = $db->prepare('SELECT SUM(taches.montant) AS montant FROM taches WHERE taches.id_project = ? AND taches.valid = 1 UNION (SELECT SUM(depenses.montant) FROM depenses WHERE depenses.id_project = ?)');
+    $req2->execute([$id, $id]);
+    $depenses = $req2->fetchAll();
+    $results = [$project, $depenses];
+    echo json_encode($results);
 }
 //$req= $db->prepare('SELECT SUM(taches.montant) AS montant FROM taches WHERE taches.id_project = ? AND taches.valid = 1 UNION (SELECT SUM(depenses.montant) FROM depenses WHERE depenses.id_project = ?)');

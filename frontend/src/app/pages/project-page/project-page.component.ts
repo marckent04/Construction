@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-page',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectPageComponent implements OnInit {
 
   work = +localStorage.getItem('work');
-
+  uri =  `/project/${this.route.firstChild.params._value.id}`;
   ngOnInit() {
+
+  }
+
+  constructor (private route: ActivatedRoute) {
   }
 
 }

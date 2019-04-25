@@ -4,13 +4,14 @@
     width: 160px;
 }
 
+i {
+    color: #ffc94d;
+}
 .profile {
     height: 160px;
     width: 100%;
     margin: 10px auto;
 }
-
-
 
 .profileMenu a {
     color: white !important;
@@ -23,11 +24,12 @@
     z-index: 500;
     box-shadow: 1px 0px 1px black;
     padding: 20px 10px 10px 10px;
-    background: #ffc300;
+    background: #4397d7;
     top: 0;
     left: 0;
-    color: #4397d7;
+    color: #fff;
 }
+
 
 .profileMenu a:hover {
     text-decoration: none;

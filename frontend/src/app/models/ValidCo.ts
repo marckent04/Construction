@@ -9,6 +9,8 @@ export class ValidCo {
     mdpR: number;
     picture: string;
     Work: any;
-  type: string;
+    type: string;
+    profile: any;
+    min: any;
 
 }

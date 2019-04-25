@@ -52,21 +52,21 @@
                     </div>
                 </div>
             </div>
-
-
-            <h2 class="text-center">Infos sur le projet</h2>
             <div class="row" id='infos'>
-                <div class="col-md-6">
+                <div class="d-none d-md-block col-md-6">
                     <div class="imgP text-center">
                          <img src="{{path}}/{{project.imageProjet}}" class='img-thumbnail border border-success' alt="">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12 col-md-6 bg-kent">
+                    <h2 class="text-center">Infos sur le projet</h2>
                     <h3>Estimation de temps : 85 jours</h3>
                     <h3>Estimation budget : {{project.budget}} Frs CFA</h3>
                     <h3>Temps estime restant : 65 jours</h3>
-                    <h3>Total depenses : 230000frs</h3>
-                    <h3>Balance : +200000 frs</h3>
+                    <h3>Depenses enregistrees par l'entrepreneur : {{project.depTache}} frs</h3>
+                    <h3>Depenses que vous avez enregistre : {{project.depUser}} frs</h3>
+                    <h3>Total depenses : {{project.totalDep}} frs</h3>
+                    <h3>Balance : {{project.balance}} frs</h3>
                     <h3>Dirige par : {{project.fEnt}} {{project.nEnt}}</h3>
                 </div>
             </div>

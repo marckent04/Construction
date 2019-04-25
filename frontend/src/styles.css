@@ -32,8 +32,20 @@ input:focus, select:focus {
     background: #fff !important;
 }
 
+.bg-kent {
+    background: #4397d7 !important;
+}
+
+.text-kent {
+    color: #4397d7 !important;
+}
+
 .btn-blue:hover {
     border-color: #4397d7 !important;
     color: #fff !important;
     background: #4397d7 !important;
+}
+
+button:disabled {
+    cursor: not-allowed !important;
 }

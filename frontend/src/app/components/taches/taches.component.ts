@@ -16,9 +16,8 @@ export class TachesComponent implements OnInit {
   idProject: number;
   files;
   work = +localStorage.getItem('work');
-  tasks: any;
-
-  filesSelected= [];
+  tasks = [];
+  filesSelected = [];
 
   finished(id) {
     let f = null;
@@ -71,7 +70,7 @@ export class TachesComponent implements OnInit {
   refresh() {
     this.read.tasks(this.idProject).subscribe(
       (data) => {
-        this.tasks = data;
+        this.tasks = data[0];
       }
     );
   }
@@ -84,7 +83,12 @@ export class TachesComponent implements OnInit {
     this.idProject = this.activateRoute.parent.params._value.id;
     this.read.tasks(this.idProject).subscribe(
       (data) => {
-        this.tasks = data;
+        const tasks = data[0];
+        const imagesTasks = data[1];
+        for (let i = 0; i < tasks.length; i++) {
+         const task = Object.assign(tasks[i], imagesTasks[i]);
+         this.tasks.push(task);
+        }
       }
     );
   }
