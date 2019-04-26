@@ -1,0 +1,73 @@
+<section class="container">
+    <h2 class="text-left">Liste des taches</h2>
+    <div>
+        <ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1">
+          <div *ngFor="let task of tasks">
+            <ngb-panel id="custom-panel-{{task.id}}" >
+              <ng-template ngbPanelHeader let-opened="collapsed">
+                <div class="">
+                  <h5 class="m-0 title">{{task.title | uppercase}}</h5>
+                  <h6 *ngIf="task.valid == 1">Statut : <span *ngIf="task.statut == 0" class="text-warning">En cours</span><span *ngIf="task.statut == 1" class="text-success">Termine le {{task.finishedAt}}</span></h6>
+                  <h6>Debut des travaux : {{task.begin}}</h6>
+                  <h6>Deadline : {{task.deadline}}</h6>
+                  <h6 *ngIf="work !== 1">Dirige par : {{task.chef}}</h6>
+                  <button ngbPanelToggle class="btn btn-block bg-kent p-0"><i class="fas fa-caret-square-down text-warning"></i></button>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-md-6">
+                      <h6 *ngIf="work !== 1">Valide par le client : <span *ngIf="task.valid == 1">OUI</span><span *ngIf="task.valid == 0">NON</span></h6>
+                      <h6 *ngIf="work === 1">Valide : <span *ngIf="task.valid == 1">OUI</span><span *ngIf="task.valid == 0">NON</span></h6>
+                  </div>
+                  <div class="col-md-6">
+                      <h6>Cout des travaux : {{task.montant}} Frs. CFA </h6>
+                  </div>
+                </div>
+                <div class="row descriptions">
+                  <div class="col-md-6">
+                    <h5>Description des travaux</h5>
+                    <p>
+                      {{task.description}}
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Description des ressources</h5>
+                    <p>{{task.ressources}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button class="btn btn-outline-primary" *ngIf="task.valid == 0 && work === 1" (click)="update(task.id, 1)">Valider les travaux</button>
+                    <button class="btn btn-outline-danger" *ngIf="task.valid == 0 && work === 1" (click)="update(task.id, 0)">Annuler les travaux</button>
+                  </div>
+                  <div class="col-md-6" *ngIf="task.valid == 1 && work !== 1 && task.statut == 0">
+                      
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <form class="form-inline" #images="ngForm" (ngSubmit)="finished(task.id)" *ngIf="task.statut == 0 && task.valid == 1 && work != 1">
+                      <input type="file" name="images[]" multiple class="form-control" (change)="onFiles($event)" ngModel required>
+                      <button class="btn btn-outline-success" [disabled]="images.invalid"><i class="fas fa-clipboard-check"></i> Travaux termines</button>
+                    </form>
+                    <p *ngIf="task.statut == 1" class="text-warning">{{task.nbre}} images ont etes ajoutes</p>
+                  </div>
+                  <div class="col-md-3 justify-content-end">
+                    <small><strong>Cree le {{task.createAt}}</strong></small>
+                  </div>
+                  
+                </div>
+                
+                <div class="row">
+                  
+              
+                </div>
+                
+              </ng-template>
+            </ngb-panel>
+          </div>
+          </ngb-accordion>
+    </div>
+    
+</section>

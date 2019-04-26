@@ -1,0 +1,16 @@
+  <div class="card project">
+      <div class='imgProject'>
+          <img src="{{path}}/{{infos.imageProjet}}" class="card-img-top" alt="">
+          <i *ngIf="infos.status == 0" class="fas fa-file statusProject text-secondary"></i>
+          <i *ngIf="infos.status == 1" class="fas fa-check-circle statusProject text-success"></i>
+      </div>
+
+    <div class="card-body">
+          <h5 class="card-title text-center">{{infos.nomProjet}}</h5>
+          <p class="card-text text-muted">{{infos.emplacement}}</p>
+          <p class="text-muted card-text">Projet de {{infos.firstname}} {{infos.name}}</p>
+          <hr>
+            <a routerLink="/project/{{infos.id}}" class="btn btn-blue seeMore">bosser sur ce projet</a>
+      </div>
+  </div>
+

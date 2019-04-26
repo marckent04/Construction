@@ -1,0 +1,28 @@
+table {
+    background: rgba(000, 000, 000, 0.6);
+    color: white !important;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: black !important;
+}
+
+#collapseExample {
+    z-index: 1000;
+    position: absolute;
+    right: 4%;
+}
+
+
+.form-add {
+    position: relative;
+}
+
+
+section {
+    left: 0;
+    position: absolute;
+    width: 98%;
+    min-height: 100%;
+}

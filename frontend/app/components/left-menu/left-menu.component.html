@@ -1,0 +1,17 @@
+<div class="d-none d-md-block leftMenu">
+  <h4 class="text-center">Build Manager</h4>
+  <div class="profile d-flex justify-content-center align-items-center">
+      <img src="{{user.picture}}" class="img-responsive profilePic">
+  </div>
+  <p class="text-center"><strong>{{user.fname}} {{user.name}}</strong></p>
+  <p class="text-center">Compte <br> {{user.type}}</p>
+  <div class="profileMenu">
+      <ul class="list-group">
+          <li class="list-group-item text-center" routerLinkActive="activate"><a [routerLink]="['/welcome', {outlets: { options: 'projects'}}]"><i class="fas fa-home"></i> Voir mes projets</a></li>
+          <li class="list-group-item text-center" routerLinkActive="activate" *ngIf="user.work == 1"><a  [routerLink]="['/welcome', {outlets: { options: 'add'}}]"><i class="fas fa-plus-circle"></i> Nouveau projet</a></li>
+          <li class="list-group-item text-center" routerLinkActive="activate"><a [routerLink]="['/welcome', {outlets: { options: 'profile'}}]"><i class="fas fa-edit"></i> Modifier mes infos</a></li>
+          <li class="list-group-item text-center" routerLinkActive="activate"><a [routerLink]="['/welcome', {outlets: { options: 'news'}}]"><i class="fas fa-newspaper"></i> News</a></li>
+          <li class="list-group-item text-center" routerLinkActive="activate"><a routerLink='#' (click)="deconnexion()"><i class="fas fa-sign-out-alt"></i> Se deconnecter</a></li>
+      </ul>
+  </div>
+</div>

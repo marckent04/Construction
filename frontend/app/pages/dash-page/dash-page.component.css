@@ -1,0 +1,13 @@
+section {
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    background: url('../../../assets/ConstructionTPApic.jpg');
+    background-size: cover;
+    padding-bottom: 25px;
+}
+
+div {
+    height: 100%;
+}

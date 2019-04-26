@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 26 avr. 2019 à 05:07
+-- Généré le :  ven. 26 avr. 2019 à 11:02
 -- Version du serveur :  10.1.36-MariaDB
 -- Version de PHP :  7.2.11
 
@@ -43,7 +43,12 @@ CREATE TABLE `depenses` (
 
 INSERT INTO `depenses` (`id`, `lib`, `id_project`, `montant`, `description`, `date_dep`) VALUES
 (1, 'Paiement entrepreneur', 3, 50000, 'Versement pour debut des fondations', '2019-10-20'),
-(2, 'paiement permis de construire', 3, 25000000, 'Versement a la direction de la construction', '2019-02-15');
+(2, 'paiement permis de construire', 3, 25000000, 'Versement a la direction de la construction', '2019-02-15'),
+(3, 'Paiement entrepreneur pour debut de projet', 11, 250000, 'juste le paiement', '2019-04-26'),
+(4, 'paiement entrepreneur', 12, 180000, 'rien de grave', '2019-04-18'),
+(5, 'Paiement entrepreneur', 13, 250000, 'oki cest bon', '2019-04-24'),
+(6, 'Paiement entrepreneur', 14, 25000000, 'oki', '2019-04-10'),
+(7, 'Paiement entrepreneur', 15, 250000, 'oki', '2019-04-18');
 
 -- --------------------------------------------------------
 
@@ -68,7 +73,11 @@ INSERT INTO `images` (`id`, `id_task`, `id_project`, `img`) VALUES
 (3, 1, 0, 'buildImg.jpg'),
 (4, 2, 3, '22921284-homme-d-affaires-vÃªtu-d-une-chemise-bleu-business-est-submergÃ©-par-les-nouvelles-technologies-tena.jpg'),
 (5, 2, 3, 'bigstock-Construction-Worker-At-Site-3461983.jpg'),
-(6, 2, 3, 'construction-apps-for-ipad.jpg');
+(6, 2, 3, 'construction-apps-for-ipad.jpg'),
+(7, 4, 14, 'alsace-construction-traditionnelle.jpg'),
+(8, 4, 14, 'batisud-entreprise-construction-renovation-montpellier.jpg'),
+(9, 5, 15, 'alsace-construction-traditionnelle.jpg'),
+(10, 5, 15, 'batisud-entreprise-construction-renovation-montpellier.jpg');
 
 -- --------------------------------------------------------
 
@@ -91,7 +100,11 @@ CREATE TABLE `invitation` (
 
 INSERT INTO `invitation` (`id`, `idProject`, `idEmetteur`, `idRecepteur`, `dateEnvoi`, `statut`) VALUES
 (2, 2, 10, 13, '2019-04-17 18:09:04', 0),
-(10, 3, 10, 11, '2019-04-24 06:00:40', 1);
+(10, 3, 10, 11, '2019-04-24 06:00:40', 1),
+(11, 12, 20, 21, '2019-04-26 04:21:15', 1),
+(12, 13, 22, 11, '2019-04-26 07:55:49', 1),
+(13, 14, 27, 28, '2019-04-26 08:30:17', 1),
+(14, 15, 29, 30, '2019-04-26 08:52:10', 1);
 
 -- --------------------------------------------------------
 
@@ -118,7 +131,7 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `nomProjet`, `nomArchitecte`, `budget`, `dateFin`, `emplacement`, `imageProjet`, `createdAt`, `id_proprio`, `id_ent`, `status`) VALUES
-(3, 'Garba Tour', 'Aousha', 155000000, '2020-10-20', 'abidjan', 'Mean.jpg', '2019-04-17 18:07:54', 10, 11, 1);
+(15, 'Ecole NaN', 'Da Vinci', 2500000000, '2019-04-27', 'Angre Gestoci', '29-alsace-construction-traditionnelle.jpg', '2019-04-26 08:48:37', 29, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -148,9 +161,7 @@ CREATE TABLE `taches` (
 --
 
 INSERT INTO `taches` (`id`, `title`, `id_project`, `createAt`, `finishedAt`, `begin`, `valid`, `validateAt`, `deadline`, `statut`, `chef`, `montant`, `description`, `ressources`) VALUES
-(1, 'refonte salon', 3, '2019-04-24 07:45:22', '2019-04-24', '2019-10-10', 1, '2019-04-24', '2019-11-20', 1, 'Brahima', 60000, 'ok', 'ca'),
-(2, 'fondations batiment', 3, '2019-04-24 09:33:29', '2019-04-24', '2010-10-20', 1, '2019-04-24', '2012-10-20', 1, 'Brahima', 110000, 'sss', 'ssss'),
-(3, 'restaurant toit', 3, '2019-04-25 04:23:11', NULL, '2019-10-20', 0, NULL, '2021-10-19', 0, 'Aziz', 50000, 'ca', 'xa');
+(5, 'fondations', 15, '2019-04-26 08:53:54', '2019-04-26', '2019-04-28', 1, '2019-04-26', '2019-04-30', 1, 'Hinata', 2500000, 'ce sont les fondations', 'ciment : 50kg ...');
 
 -- --------------------------------------------------------
 
@@ -194,12 +205,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `firstname`, `mail`, `mdp`, `work`, `createAt`, `picture`) VALUES
 (10, 'Gbro', 'Cosette D\'avila', 'davilacosette@gmail.com', '$2y$15$clDuXL59DXgpCnlzntLEUuoYTQ3xnWzez45qsmEToVaNNNJcKA94W', 1, '2019-04-16 10:21:38', 'EYFO4724.JPG'),
-(11, 'Nanguy', 'Marc-Henry', 'marchenrynanguy1@gmail.com', '$2y$15$8lDvKJXO179hcCwMfoYcke1GQXDYrpVE5Kq/QvFOBYdOF0Xu0cvZu', 2, '2019-04-17 12:55:54', '073c33eefb235f37b47ad2e390be8cd9.jpg'),
 (12, 'particulier', 'particulier', 'particulier@mail.com', '12345678', 1, '2019-04-17 16:08:51', ''),
-(13, 'Uzumaki', 'Naruto', 'uzumakinaruto@kent.com', '$2y$15$neMj0btYL9P7bpE7daQdSOyAattpbL7v1slPC6PGk5HYqnYsVhJ6y', 2, '2019-04-17 18:04:00', ''),
-(14, 'Marc', 'petit', 'test@test.com', '$2y$15$2aO9JDvqzcd5jvKfoWXoAOYXscN6f6iWUSE1uQG50vjv25mamppj.', 1, '2019-04-23 11:31:22', ''),
-(15, 'Brodou bi', 'Gnamien kevin', 'brodoubig@gmail.com', '$2y$15$SYnaRpY7suXjoZvmgAZ9S.1HWFruTAh5gPkhMyApnH4F/pAF2aBvm', 1, '2019-04-25 10:58:51', 'default.jpg'),
-(16, 'BuildApp', ' ', 'buildapp@build.com', 'buildApp', 2, '2019-04-25 16:17:31', 'default.jpg');
+(16, 'BuildApp', ' ', 'buildapp@build.com', 'buildApp', 2, '2019-04-25 16:17:31', 'default.jpg'),
+(29, 'Nanguy', 'Marc-Henry', 'marchenrynanguy@gmail.com', '$2y$15$NzxceoYaU/wbXtaSeyaQH.YUaOMNKpyyJu2IEDGwoGSZzjXKCkJ76', 1, '2019-04-26 08:47:20', 'profil.jpg'),
+(30, 'Marc', 'Nanguy', 'marckent@gmail.com', '$2y$15$sOz6FKOdcfFVzbtGACkYBO2XorYH9O.V/xXRVvulJNDc4Rr9GyEkm', 2, '2019-04-26 08:51:20', 'default.jpg');
 
 --
 -- Index pour les tables déchargées
@@ -266,31 +275,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `depenses`
 --
 ALTER TABLE `depenses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
 --
 ALTER TABLE `taches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `typeintervenant`
@@ -302,7 +311,7 @@ ALTER TABLE `typeintervenant`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Contraintes pour les tables déchargées

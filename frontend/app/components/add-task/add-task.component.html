@@ -1,0 +1,66 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <form class="offset-md-2 col-md-8 bg-kent" #Task="ngForm" (ngSubmit)="addTask(Task)">
+          <ngb-alert type="success" (close)="close()" *ngIf="success">La tache <strong>{{currentTask}}</strong> a bien ete ajoutee au projet</ngb-alert>
+        <div class="ask">
+          <h4>Que voulez vous faire ?</h4>
+        </div>
+        <div class="form-group">
+            <label class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-edit"></i></div>
+              <input type="text" name="title" class="form-control" placeholder="Titre de la tache" ngModel required>
+            </label>
+
+            <label class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+              <input type="text" name="respo" class="form-control" placeholder="Responsable de la tache" ngModel required>
+            </label>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="debut">Quand debutez-vous ?</label>
+                  <label class="input-group-prepend">
+                      <div class="input-group-text"><i class="far fa-calendar-plus"></i></div>
+                      <input type="date" name="begin" class="form-control" id="debut" ngModel required>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label for="fin">Quand comptez-vous finir ?</label>
+                  <label class="input-group-prepend">
+                      <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                      <input type="date" name="deadline" class="form-control" placeholder="Quelle est la deadline" id="fin" ngModel required>
+                  </label>
+                  <div class="col-md-12">
+                      <small class="text-danger">{{err.time}}</small>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Description de la tache</label>
+              <textarea id="comment" class="form-control" rows="3" name="comment" placeholder="Votre client a besoin de comprendre en quoi est ce que cette tache va faire avancer le projet" ngModel required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="mtn">Cout des travaux</label>
+              <input type="number" name="mtn" id="mtn" class="form-control" min="0" step="10000" placeholder="A combien est estime les travaux ?"  ngModel required>
+              
+            </div>
+
+            <div class="form-group">
+                <label for="besoin">De quoi avez vous besoin ??</label>
+                <textarea id="besoin" name="besoin" class="form-control" rows="4" placeholder="Votre client a besoin de comprendre pourquoi la somme demandee" ngModel required></textarea>
+              </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-kent btn-block" [disabled]="Task.invalid">Ajouter une nouvelle tache</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

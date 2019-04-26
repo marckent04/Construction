@@ -1,0 +1,24 @@
+section {
+    background-size: cover;
+    background-image: url('../../../assets/alsace-construction-traditionnelle.jpg');
+    padding: 20px auto;
+}
+
+.icons {
+    color: rgb(255, 193, 77);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.col-md-4 {
+    background-color: rgba(000, 000, 000, 0.6);
+    padding: 15px 10px;
+    color: white;
+    
+}
+
+
+.col-md-4 p {
+    font-style: italic;
+    width: 96%;
+}

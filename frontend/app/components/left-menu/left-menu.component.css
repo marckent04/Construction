@@ -1,0 +1,58 @@
+.profilePic {
+    height: inherit;
+    border-radius: 50%;
+    width: 160px;
+}
+
+i {
+    color: #ffc94d;
+}
+.profile {
+    height: 160px;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.profileMenu a {
+    color: white !important;
+}
+
+.leftMenu {
+    border-right: 1px solid black;
+    height: 100%;
+    position: fixed;
+    z-index: 500;
+    box-shadow: 1px 0px 1px black;
+    padding: 20px 10px 10px 10px;
+    background: #4397d7;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+
+
+.profileMenu a:hover {
+    text-decoration: none;
+    color: #4397d7 !important;
+}
+
+li {
+    background: #4397d7;
+    margin: 1px 0;
+}
+li:hover {
+    background: white;
+    /* border-color: black; */
+    /* color: #f5666a !important; */
+    /* box-shadow: 0px 0px 2px black; */
+}
+
+.activate {
+    border-left: 6px solid orange;
+    width: initial - 6px;
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange;
+    box-shadow: 0px 0px 3px gray;
+    
+}
+

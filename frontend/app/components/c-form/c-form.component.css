@@ -1,0 +1,28 @@
+.connexion {
+    height: 600px;
+    position: absolute;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    background-image: url('../../../assets/bgConstruct.jpg');
+    background-size: cover;
+}
+
+
+.coForm {
+    border: 1px solid black;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: rgba(000, 000, 000, 0.7);
+    border-radius: 3%;
+    color: #ffc300;
+}
+
+
+
+
+
+.profile {
+    width: 160px;
+    height: 160px;
+}

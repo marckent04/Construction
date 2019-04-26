@@ -1,0 +1,35 @@
+<ngx-spinner></ngx-spinner>
+<div class="container">
+    <div class="row">
+        <div class="alert alert-warning confirm" *ngIf="success">
+            <strong>Attention cette decision est irreversible !!!</strong>
+            <p>Vous avez decide d'ajouter Mr. {{intervenant}} comme entrepreneur sur ce projet</p>
+            <div class="buttons">
+              <button type="button" class="btn btn-outline-success" (click)="confirm(invit)">Confirmer</button>
+              <button type="button" class="btn btn-outline-danger" (click)="cancel()">Annuler</button>
+            </div>
+        </div>
+        
+          <form id="form" #invit='ngForm' (ngSubmit)="onSubmit(invit)"  class="offset-1 col-10 offset-md-1 col-md-10">
+              <ngb-alert *ngIf="adding" type="success" (close)="close()">{{intervenant}} a bien ete ajoute a votre projet</ngb-alert>
+              <p class="text-center text-kent"><strong>AJOUTER/CHANGER UN ENTREPRENEUR OU UNE ENTREPRISE</strong></p>
+              <div class="form-group">
+                  <label for="mail"  class="text-kent">Mail intervenant</label>
+                  <input type="email" name="mail" id="mail" class="form-control" ngModel required>
+                  <small class="text-danger">{{err.mail}}</small>
+              </div>
+
+              <div class="form-group">
+                <label for="mdp" class="text-kent">Votre mot de passe</label>
+                <input id="mdp" class="form-control" type="password" name="mdp" ngModel required>
+                <small class="text-danger">{{err.mdp}}</small>
+              </div>
+      
+              <div class="form-group" *ngIf="!success">
+                <button class='btn btn-kent btn-block' [disabled]='invit.invalid'>Ajouter</button>
+              </div>
+              
+            </form>
+      </div>
+</div>
+

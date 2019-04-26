@@ -1,0 +1,21 @@
+#form {
+    margin-top: 30PX;
+    background: rgba(255, 255, 255, 0.904);
+    padding: 10%;
+    border: 1px solid #d8d7d7;
+    border-radius: 3%;
+    width: 280px;
+    box-shadow: 0px 0px 6px black;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm {
+    position: absolute;
+    z-index: 1000;
+    width: 80%;
+    margin-left: 10%;
+}

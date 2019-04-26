@@ -1,0 +1,27 @@
+
+<div class="container-fluid connexion">
+  <div class="container">
+      <form #fc='ngForm' (ngSubmit)='connexion(fc)' class="offset-md-4 col-md-4 coForm">
+          <h3 class="text-center text-kent">Connexion</h3>
+          <div class="text-center" *ngIf="imgProfile && name">
+            <img src='{{path}}/{{imgProfile}}' alt='photo de profil' class="profile img-rounded img-thumbnail">
+            <p class="text-light">Bienvenue {{name}}</p>
+          </div>
+          <div class="form-group">
+            <label for="mail" class="text-kent">Email</label>
+            <input type="email" name="mail" id="mail" class="form-control" placeholder="entrer votre mail ..." ngModel required>
+            <small class="text-danger">{{err.mail}}</small>
+          </div>
+          <div class="form-group">
+            <label for="mdp" class="text-kent">Votre mot de passe</label>
+            <input type="password" name="mdp" id="mdp" class="form-control" placeholder="mot de passe" ngModel required>
+            <small class="text-danger">{{err.mdp}}</small> 
+          </div>
+          <div class="form-group">
+            <button class='btn btn-block btn-kent' [disabled]="fc.invalid">Me connecter</button>
+          </div>
+        </form>
+  </div>
+          
+</div>
+<ngx-spinner></ngx-spinner>

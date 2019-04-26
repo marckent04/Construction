@@ -59,7 +59,7 @@
                 // } else {
                     if(move_uploaded_file($img, $target_file)) {
                         $success['upload'] = true;
-                        $imgName = basename($imgName);
+                        $imgName = $idProprio . '-' .basename($imgName);
                    }
                 //}
             } else {

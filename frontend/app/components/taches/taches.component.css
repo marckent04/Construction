@@ -1,0 +1,28 @@
+section {
+}
+
+.task {
+    width: 100%;
+}
+
+section {
+    position: absolute;
+    width: 100%;
+}
+
+#acc {
+    background: red;
+}
+
+.titre {
+    background: red !important;
+}
+
+.descriptions {
+    margin-top: 20px;
+}
+
+.title {
+    color: #4397d7 !important;
+    text-shadow: 0px 0px 2px #4397d7;
+}
