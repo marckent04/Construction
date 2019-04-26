@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 24 avr. 2019 à 12:10
+-- Généré le :  ven. 26 avr. 2019 à 05:07
 -- Version du serveur :  10.1.36-MariaDB
 -- Version de PHP :  7.2.11
 
@@ -58,6 +58,18 @@ CREATE TABLE `images` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`id`, `id_task`, `id_project`, `img`) VALUES
+(1, 1, 0, 'alsace-construction-traditionnelle.jpg'),
+(2, 1, 0, 'batisud-entreprise-construction-renovation-montpellier.jpg'),
+(3, 1, 0, 'buildImg.jpg'),
+(4, 2, 3, '22921284-homme-d-affaires-vÃªtu-d-une-chemise-bleu-business-est-submergÃ©-par-les-nouvelles-technologies-tena.jpg'),
+(5, 2, 3, 'bigstock-Construction-Worker-At-Site-3461983.jpg'),
+(6, 2, 3, 'construction-apps-for-ipad.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -97,7 +109,7 @@ CREATE TABLE `project` (
   `imageProjet` varchar(255) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_proprio` int(11) NOT NULL,
-  `id_ent` int(11) DEFAULT NULL,
+  `id_ent` int(11) DEFAULT '16',
   `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -106,7 +118,7 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `nomProjet`, `nomArchitecte`, `budget`, `dateFin`, `emplacement`, `imageProjet`, `createdAt`, `id_proprio`, `id_ent`, `status`) VALUES
-(3, 'Garba Tour', 'Aousha', 155000000, '2020-10-20', 'abidjan', 'Mean.jpg', '2019-04-17 18:07:54', 10, 11, 0);
+(3, 'Garba Tour', 'Aousha', 155000000, '2020-10-20', 'abidjan', 'Mean.jpg', '2019-04-17 18:07:54', 10, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -136,8 +148,9 @@ CREATE TABLE `taches` (
 --
 
 INSERT INTO `taches` (`id`, `title`, `id_project`, `createAt`, `finishedAt`, `begin`, `valid`, `validateAt`, `deadline`, `statut`, `chef`, `montant`, `description`, `ressources`) VALUES
-(1, 'refonte salon', 3, '2019-04-24 07:45:22', NULL, '2019-10-10', 0, NULL, '2019-11-20', 0, 'Brahima', 60000, 'ok', 'ca'),
-(2, 'fondations batiment', 3, '2019-04-24 09:33:29', NULL, '2010-10-20', 0, NULL, '2012-10-20', 0, 'Brahima', 110000, 'sss', 'ssss');
+(1, 'refonte salon', 3, '2019-04-24 07:45:22', '2019-04-24', '2019-10-10', 1, '2019-04-24', '2019-11-20', 1, 'Brahima', 60000, 'ok', 'ca'),
+(2, 'fondations batiment', 3, '2019-04-24 09:33:29', '2019-04-24', '2010-10-20', 1, '2019-04-24', '2012-10-20', 1, 'Brahima', 110000, 'sss', 'ssss'),
+(3, 'restaurant toit', 3, '2019-04-25 04:23:11', NULL, '2019-10-20', 0, NULL, '2021-10-19', 0, 'Aziz', 50000, 'ca', 'xa');
 
 -- --------------------------------------------------------
 
@@ -172,7 +185,7 @@ CREATE TABLE `users` (
   `mdp` varchar(100) NOT NULL,
   `work` int(11) NOT NULL,
   `createAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `picture` varchar(255) NOT NULL
+  `picture` varchar(255) NOT NULL DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -184,7 +197,9 @@ INSERT INTO `users` (`id`, `name`, `firstname`, `mail`, `mdp`, `work`, `createAt
 (11, 'Nanguy', 'Marc-Henry', 'marchenrynanguy1@gmail.com', '$2y$15$8lDvKJXO179hcCwMfoYcke1GQXDYrpVE5Kq/QvFOBYdOF0Xu0cvZu', 2, '2019-04-17 12:55:54', '073c33eefb235f37b47ad2e390be8cd9.jpg'),
 (12, 'particulier', 'particulier', 'particulier@mail.com', '12345678', 1, '2019-04-17 16:08:51', ''),
 (13, 'Uzumaki', 'Naruto', 'uzumakinaruto@kent.com', '$2y$15$neMj0btYL9P7bpE7daQdSOyAattpbL7v1slPC6PGk5HYqnYsVhJ6y', 2, '2019-04-17 18:04:00', ''),
-(14, 'Marc', 'petit', 'test@test.com', '$2y$15$2aO9JDvqzcd5jvKfoWXoAOYXscN6f6iWUSE1uQG50vjv25mamppj.', 1, '2019-04-23 11:31:22', '');
+(14, 'Marc', 'petit', 'test@test.com', '$2y$15$2aO9JDvqzcd5jvKfoWXoAOYXscN6f6iWUSE1uQG50vjv25mamppj.', 1, '2019-04-23 11:31:22', ''),
+(15, 'Brodou bi', 'Gnamien kevin', 'brodoubig@gmail.com', '$2y$15$SYnaRpY7suXjoZvmgAZ9S.1HWFruTAh5gPkhMyApnH4F/pAF2aBvm', 1, '2019-04-25 10:58:51', 'default.jpg'),
+(16, 'BuildApp', ' ', 'buildapp@build.com', 'buildApp', 2, '2019-04-25 16:17:31', 'default.jpg');
 
 --
 -- Index pour les tables déchargées
@@ -257,7 +272,7 @@ ALTER TABLE `depenses`
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `invitation`
@@ -269,13 +284,13 @@ ALTER TABLE `invitation`
 -- AUTO_INCREMENT pour la table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
 --
 ALTER TABLE `taches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `typeintervenant`
@@ -287,7 +302,7 @@ ALTER TABLE `typeintervenant`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Contraintes pour les tables déchargées

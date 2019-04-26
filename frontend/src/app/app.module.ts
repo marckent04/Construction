@@ -48,6 +48,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarouselAcceuilComponent } from './components/carousel-acceuil/carousel-acceuil.component';
 import { MoreComponent } from './components/more/more.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FourOfourComponent } from './pages/four-ofour/four-ofour.component';
 
 
 
@@ -82,6 +83,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CarouselAcceuilComponent,
     MoreComponent,
     FooterComponent,
+    FourOfourComponent,
   ],
   imports: [
     BrowserModule,

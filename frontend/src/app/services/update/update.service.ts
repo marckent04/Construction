@@ -41,6 +41,10 @@ export class UpdateService {
   task(id: number, choice: number) {
     return this.http.get(`${this.PHP_API_URL}/taskValidate.php?id=${id}&choice=${choice}`);
   }
+
+  projectStatut(id: number) {
+    return this.http.get(`${this.PHP_API_URL}/projectFinished.php?id=${id}`);
+  }
 }
 
 

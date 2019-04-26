@@ -10,7 +10,7 @@ import { UpdateService } from 'src/app/services/update/update.service';
   styleUrls: ['./notifs.component.css']
 })
 export class NotifsComponent implements OnInit {
-
+  user = localStorage;
   invitations: any;
   refresh(id: number) {
     this.read.notifications(+localStorage.getItem('id')).subscribe(

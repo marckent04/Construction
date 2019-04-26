@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DeleteService } from 'src/app/services/delete/delete.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ReadService } from 'src/app/services/read/read.service';
+import { UpdateService } from 'src/app/services/update/update.service';
 
 @Component({
   selector: 'app-project',
@@ -17,6 +18,11 @@ export class ProjectComponent implements OnInit {
   @Input() status: number;
 
   delete = false;
+
+  lstatus: number;
+  lok = 0;
+
+  
 
   removeProject(id: number) {
     if (confirm('Vous etes sur le point de supprimer votre projet')) {
@@ -34,10 +40,23 @@ export class ProjectComponent implements OnInit {
     }
   }
 
+  finished(id: number) {
+    if (confirm('Vous confirmez que ce projet est bel et bien termine ?')) {
+      this.update.projectStatut(id).subscribe(
+        (data) => {
+          if (data) {
+            this.lstatus = 1;
+            this.lok = 1;
+          }
+        }
+      )
+    }
+  }
+
   finishedProject(id: number) {
     
   }
-  constructor(private remove: DeleteService, private spinner: NgxSpinnerService, private read: ReadService) { }
+  constructor(private remove: DeleteService, private spinner: NgxSpinnerService, private update: UpdateService) {}
 
   ngOnInit() {
   }

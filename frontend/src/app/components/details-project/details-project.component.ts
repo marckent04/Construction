@@ -39,7 +39,6 @@ export class DetailsProjectComponent implements OnInit {
     this.path = this.config.PROJECT_PATH;
     this.read.project(this.id).subscribe(
       (data: Project) =>  {
-        console.log(data);
         this.project = data[0];
         const dep = data[1];
         if (dep[0].montant) {

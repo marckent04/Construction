@@ -1,11 +1,11 @@
 
     <div class="card project" *ngIf="!delete">
-            <button class="btn btn-success ok"><i class="fas fa-check-circle"></i></button>
-            <button class="btn btn-danger supp" (click)="removeProject(id)"><i class="fa fa-times-circle"></i></button>
+            <button class="btn btn-success ok" (click)="finished(+id)" *ngIf="status == 0"><i class="fas fa-check-circle"></i></button>
+            <button class="btn btn-danger supp" (click)="removeProject(id)" *ngIf="status == 0"><i class="fa fa-times-circle"></i></button>
         <div class='imgProject'>
             <img src="{{img}}" class="card-img-top" alt="{{nom}}">
-            <i *ngIf="status== 0" class="fas fa-file statusProject text-secondary"></i>
-            <i *ngIf="status == 1" class="fas fa-check-circle statusProject text-success"></i>
+            <i *ngIf="status== 0 && !(lstatus == 1)" class="fas fa-file statusProject text-secondary"></i>
+            <i *ngIf="status == 1 || lstatus == 1" class="fas fa-check-circle statusProject text-success"></i>
         </div>
 
         <div class="card-body">

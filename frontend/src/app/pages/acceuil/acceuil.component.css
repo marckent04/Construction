@@ -1,0 +1,41 @@
+.pub {
+    height: 250px;
+}
+
+section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #fea235;
+}
+
+h2 {
+    color: #4397d7;
+    border-color: #4397d7 !important;
+}
+
+.line {
+    height: 250px;
+    margin: 20px;
+}
+
+
+.col-md-7 > h2 {
+    border: 3px solid black;
+    border-radius: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: inline;
+    width: 10%;
+    height: auto;
+}
+
+.col-md-7 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-7 h3 {
+    text-align: center;
+}

@@ -9,6 +9,9 @@ import { ServerConfigService } from 'src/app/services/config/server-config.servi
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+
+
+
   work = +localStorage.getItem('work');
   projects;
   url: string;
